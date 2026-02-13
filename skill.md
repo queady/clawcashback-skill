@@ -1,16 +1,16 @@
 ---
 name: clawcashback
 description: Get cashback when shopping. Lists partner shops and generates affiliate links so the user can earn cashback on purchases. Use when the user wants to buy something, find a shop with cashback, or get an affiliate link for a purchase.
-metadata: {"openclaw":{"homepage":"https://claw-cashback.vercel.app","emoji":"💰"}}
+metadata: {"openclaw":{"homepage":"https://clawcashback.com","emoji":"💰"}}
 ---
 
 # ClawCashback Skill
 
 ClawCashback lets agents and users earn cashback on purchases by using affiliate links from partner shops.
 
-**Website:** https://claw-cashback.vercel.app
-**How it works:** https://claw-cashback.vercel.app/docs
-**Shops:** https://claw-cashback.vercel.app/shops
+**Website:** https://clawcashback.com
+**How it works:** https://clawcashback.com/docs
+**Shops:** https://clawcashback.com/shops
 
 ---
 
@@ -24,12 +24,12 @@ ClawCashback lets agents and users earn cashback on purchases by using affiliate
 
 ## Quick start (API)
 
-Base URL: `https://claw-cashback.vercel.app/api`
+Base URL: `https://clawcashback.com/api`
 
 ### 0. Register (one-time)
 
 ```
-POST https://claw-cashback.vercel.app/api/agents/register
+POST https://clawcashback.com/api/agents/register
 Content-Type: application/json
 
 { "name": "your-agent-name" }
@@ -46,7 +46,7 @@ Authorization: Bearer <your_api_key>
 **Already registered?** Skip registration. Use your saved `api_key` directly. Verify it works:
 
 ```
-GET https://claw-cashback.vercel.app/api/agents/me
+GET https://clawcashback.com/api/agents/me
 Authorization: Bearer <your_api_key>
 ```
 
@@ -55,7 +55,7 @@ If you get a 401, the key is invalid — register again.
 ### 1. List shops
 
 ```
-GET https://claw-cashback.vercel.app/api/shops
+GET https://clawcashback.com/api/shops
 ```
 
 Response: `{ "shops": [ { "id", "name", "cashback_percent", "base_url", "logo_url"?: string } ] }`
@@ -65,12 +65,12 @@ Response: `{ "shops": [ { "id", "name", "cashback_percent", "base_url", "logo_ur
 When the user chose a shop (and optionally has a product URL):
 
 ```
-GET https://claw-cashback.vercel.app/api/affiliate?shop=<shop_id>
+GET https://clawcashback.com/api/affiliate?shop=<shop_id>
 Authorization: Bearer <your_api_key>
 ```
 
 ```
-GET https://claw-cashback.vercel.app/api/affiliate?shop=<shop_id>&url=<product_url>
+GET https://clawcashback.com/api/affiliate?shop=<shop_id>&url=<product_url>
 Authorization: Bearer <your_api_key>
 ```
 
@@ -83,7 +83,7 @@ Give the user the `affiliate_url` and tell them to use it when buying so they ge
 ### 4. Check your stats (optional)
 
 ```
-GET https://claw-cashback.vercel.app/api/agents/me
+GET https://clawcashback.com/api/agents/me
 Authorization: Bearer <your_api_key>
 ```
 
@@ -93,10 +93,10 @@ Response: `{ "agent_id": string, "name": string, "links_generated": number, "sol
 
 ## Workflow
 
-1. **Register (first time only)** – Call `POST https://claw-cashback.vercel.app/api/agents/register` with `{ "name": "your-name" }`. Save the `api_key` from the response — it is only shown once.
+1. **Register (first time only)** – Call `POST https://clawcashback.com/api/agents/register` with `{ "name": "your-name" }`. Save the `api_key` from the response — it is only shown once.
 2. **Returning agent** – Already have an `api_key`? Skip step 1. Optionally verify with `GET /api/agents/me`.
-3. **List shops** – Call `GET https://claw-cashback.vercel.app/api/shops`. Show the user available shops and cashback rates if they haven't chosen yet.
-4. **Get link** – Call `GET https://claw-cashback.vercel.app/api/affiliate?shop=<id>` with `Authorization: Bearer <api_key>` (add `&url=<product_url>` if the user has a product page URL).
+3. **List shops** – Call `GET https://clawcashback.com/api/shops`. Show the user available shops and cashback rates if they haven't chosen yet.
+4. **Get link** – Call `GET https://clawcashback.com/api/affiliate?shop=<id>` with `Authorization: Bearer <api_key>` (add `&url=<product_url>` if the user has a product page URL).
 5. **Reply** – Return the `affiliate_url` and say: "Use this link to get cashback on your purchase."
 
 ---
@@ -116,6 +116,6 @@ Response: `{ "agent_id": string, "name": string, "links_generated": number, "sol
 
 ## Support
 
-- **Website:** https://claw-cashback.vercel.app
-- **Docs:** https://claw-cashback.vercel.app/docs
-- **Shops:** https://claw-cashback.vercel.app/shops
+- **Website:** https://clawcashback.com
+- **Docs:** https://clawcashback.com/docs
+- **Shops:** https://clawcashback.com/shops
